@@ -224,6 +224,7 @@ func (c *streamConn) Read(b []byte) (int, error) {
 			return 0, err
 		}
 	}
+
 	return c.r.Read(b)
 }
 
