@@ -1,4 +1,4 @@
-package shadowaead
+package saead
 
 import (
 	"crypto/rand"
