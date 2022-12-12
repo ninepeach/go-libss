@@ -1,4 +1,4 @@
-# go-libss
+# go-libss example
 
 server:
 ```
