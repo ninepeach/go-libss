@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/ninepeach/go-libss/shadowaead"
+	"github.com/ninepeach/go-libss/saead"
 )
 
 type Cipher interface {
@@ -35,11 +35,11 @@ const (
 // List of AEAD ciphers: key size in bytes and constructor
 var aeadList = map[string]struct {
 	KeySize int
-	New     func([]byte) (shadowaead.Cipher, error)
+	New     func([]byte) (saead.Cipher, error)
 }{
-	aeadAes128Gcm:        {16, shadowaead.AESGCM},
-	aeadAes256Gcm:        {32, shadowaead.AESGCM},
-	aeadChacha20Poly1305: {32, shadowaead.Chacha20Poly1305},
+	aeadAes128Gcm:        {16, saead.AESGCM},
+	aeadAes256Gcm:        {32, saead.AESGCM},
+	aeadChacha20Poly1305: {32, saead.Chacha20Poly1305},
 }
 
 // ListCipher returns a list of available cipher names sorted alphabetically.
