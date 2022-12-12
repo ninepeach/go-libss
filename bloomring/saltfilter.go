@@ -8,7 +8,7 @@ import (
 )
 
 // Those suggest value are all set according to
-// https://github.com/shadowsocks/shadowsocks-org/issues/44#issuecomment-281021054
+// " So let's just suggest 1e+6 entries and 1e-6 error rate here."
 // Due to this package contains various internal implementation so const named with DefaultBR prefix
 const (
 	DefaultSFCapacity = 1e6
@@ -17,7 +17,7 @@ const (
 	DefaultSFSlot = 10
 )
 
-const EnvironmentPrefix = "SHADOWSOCKS_"
+const EnvironmentPrefix = "SS_"
 
 // A shared instance used for checking salt repeat
 var saltfilter *BloomRing

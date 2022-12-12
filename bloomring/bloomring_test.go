@@ -37,7 +37,7 @@ func TestBloomRing_NilAdd(t *testing.T) {
 }
 
 func TestBloomRing_Test(t *testing.T) {
-	buf := []byte("shadowsocks")
+	buf := []byte("ss_test")
 	bloomRingInstance.Add(buf)
 	if !bloomRingInstance.Test(buf) {
 		t.Fatal("Test on filter missing")
@@ -46,7 +46,7 @@ func TestBloomRing_Test(t *testing.T) {
 
 func TestBloomRing_NilTestIsFalse(t *testing.T) {
 	var nilRing *BloomRing
-	if nilRing.Test([]byte("shadowsocks")) {
+	if nilRing.Test([]byte("ss_test")) {
 		t.Fatal("Test should return false for nil BloomRing")
 	}
 }

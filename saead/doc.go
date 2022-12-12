@@ -1,5 +1,5 @@
 /*
-Package shadowaead implements a simple AEAD-protected secure protocol.
+Package saead implements a simple AEAD-protected secure protocol.
 
 In general, there are two types of connections: stream-oriented and packet-oriented.
 Stream-oriented connections (e.g. TCP) assume reliable and orderly delivery of bytes.
