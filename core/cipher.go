@@ -72,7 +72,7 @@ func PickCipher(name string, key []byte, password string) (Cipher, error) {
 			key = kdf(password, choice.KeySize)
 		}
 		if len(key) != choice.KeySize {
-			return nil, shadowaead.KeySizeError(choice.KeySize)
+			return nil, saead.KeySizeError(choice.KeySize)
 		}
 		aead, err := choice.New(key)
 		return &aeadCipher{aead}, err
@@ -81,11 +81,11 @@ func PickCipher(name string, key []byte, password string) (Cipher, error) {
 	return nil, ErrCipherNotSupported
 }
 
-type aeadCipher struct{ shadowaead.Cipher }
+type aeadCipher struct{ saead.Cipher }
 
-func (aead *aeadCipher) StreamConn(c net.Conn) net.Conn { return shadowaead.NewConn(c, aead) }
+func (aead *aeadCipher) StreamConn(c net.Conn) net.Conn { return saead.NewConn(c, aead) }
 func (aead *aeadCipher) PacketConn(c net.PacketConn) net.PacketConn {
-	return shadowaead.NewPacketConn(c, aead)
+	return saead.NewPacketConn(c, aead)
 }
 
 // dummy cipher does not encrypt
